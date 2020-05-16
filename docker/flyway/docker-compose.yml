@@ -1,0 +1,8 @@
+version: '3'
+services:
+  flyway:
+    image: flyway/flyway:6.4.2-alpine
+    command: -url=jdbc:mysql://172.20.48.231 -schemas=testschema -user=root -password=root -connectRetries=60 migrate
+    volumes:
+      - ./sql:/flyway/sql
+

@@ -1,0 +1,41 @@
+version: "2"
+services:
+  spring-nacos:
+    image: nacos/nacos-server:latest
+    container_name: spring-nacos
+    env_file:
+      - ./docker/nacos/nacos-standlone-mysql.env
+    volumes:
+      - ./docker/standalone-logs/:/home/nacos/logs
+      - ./docker/nacos/init.d/custom.properties:/home/nacos/init.d/custom.properties
+    ports:
+      - "8848:8848"
+      - "9555:9555"
+    depends_on:
+      - spring-mysql
+    restart: on-failure
+  spring-mysql:
+    container_name: spring-mysql
+    image: mysql:5.7
+    env_file:
+      - ./docker/mysql/mysql.env
+    volumes:
+      - ./docker/mysql/data:/var/lib/mysql
+#    ports:
+#      - "3306:3306"
+  spring-prometheus:
+    container_name: spring-prometheus
+    image: prom/prometheus:latest
+    volumes:
+      - ./docker/prometheus/prometheus-standalone.yaml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    depends_on:
+      - spring-nacos
+    restart: on-failure
+  spring-grafana:
+    container_name: spring-grafana
+    image: grafana/grafana:latest
+    ports:
+      - 3000:3000
+    restart: on-failure
