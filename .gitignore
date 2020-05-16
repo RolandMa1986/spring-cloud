@@ -41,3 +41,4 @@ target
 # Maven ignore
 .flattened-pom.xml
 /docker/mysql/data/
+/docker/nacos/standalone-logs/

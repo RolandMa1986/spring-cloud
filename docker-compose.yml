@@ -6,7 +6,7 @@ services:
     env_file:
       - ./docker/nacos/nacos-standlone-mysql.env
     volumes:
-      - ./docker/standalone-logs/:/home/nacos/logs
+      - ./docker/nacos/standalone-logs/:/home/nacos/logs
       - ./docker/nacos/init.d/custom.properties:/home/nacos/init.d/custom.properties
     ports:
       - "8848:8848"
