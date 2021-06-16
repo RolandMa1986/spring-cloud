@@ -27,7 +27,7 @@
         <!-- Dependency Versions -->
         <spring-cloud-commons.version>2.2.2.RELEASE</spring-cloud-commons.version>
         <spring-cloud-gateway.version>2.2.2.RELEASE</spring-cloud-gateway.version>
-        <spring-security-oauth.version>2.4.1.RELEASE</spring-security-oauth.version>
+        <spring-security-oauth.version>2.5.1.RELEASE</spring-security-oauth.version>
         <spring-cloud-netflix.version>2.2.2.RELEASE</spring-cloud-netflix.version>
         <spring-cloud-openfeign.version>2.2.2.RELEASE</spring-cloud-openfeign.version>
         <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
